@@ -15,8 +15,12 @@ url_safe_street_address = URI.encode(street_address)
 
 # Your code goes below.
 
+url_weather_data = "https://api.forecast.io/forecast/5c48999e1c9b93f9fd0134d755bf0271"+url_safe_street_address
+raw_weather_data = open(url_weather_data).read
+parsed_weather_data = JSON.parse(raw_weather_data)
+
 # Ultimately, we want the following line to work when uncommented:
 
-# puts "The current temperature at #{street_address} is #{the_temperature} degrees."
-# puts "The outlook for the next hour is: #{the_hour_outlook}"
-# puts "The outlook for the next day is: #{the_day_outlook}"
+puts "The current temperature at #{street_address} is #{the_temperature} degrees."
+puts "The outlook for the next hour is: #{the_hour_outlook}"
+puts "The outlook for the next day is: #{the_day_outlook}"
