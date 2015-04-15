@@ -13,9 +13,18 @@ puts "What is the address you would like to know the weather for?"
 street_address = gets.chomp
 url_safe_street_address = URI.encode(street_address)
 
+
 # Your code goes below.
 
-url_weather_data = "https://api.forecast.io/forecast/5c48999e1c9b93f9fd0134d755bf0271"+url_safe_street_address
+url_of_data_we_want = "http://maps.googleapis.com/maps/api/geocode/json?address="+ url_safe_street_address.to_s
+raw_data = open(url_of_data_we_want).read
+parsed_data = JSON.parse(raw_data)
+
+the_latitude = parsed_data["results"][0]["geometry"]["location"]["lat"]
+the_longitude = parsed_data["results"][0]["geometry"]["location"]["lng"]
+
+
+url_weather_data = "https://api.forecast.io/forecast/5c48999e1c9b93f9fd0134d755bf0271/" + the_latitude.to_s + "," + the_longitude.to_s
 raw_weather_data = open(url_weather_data).read
 parsed_weather_data = JSON.parse(raw_weather_data)
 
