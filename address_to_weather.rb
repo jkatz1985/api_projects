@@ -36,4 +36,4 @@ the_temperature = parsed_weather_data["currently"]["temperature"]
 
 puts "The current temperature at #{street_address} is #{the_temperature} degrees."
 puts "The outlook for the next hour is: #{the_hour_outlook}"
-puts "The outlook for the next day is: #{the_day_outlook} " 
+puts "The outlook for the next day is: #{the_day_outlook}" 
